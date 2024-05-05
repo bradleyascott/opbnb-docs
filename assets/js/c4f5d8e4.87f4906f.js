@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkopbnb_docs=self.webpackChunkopbnb_docs||[]).push([[4195],{62841:(e,n,t)=>{t.r(n),t.d(n,{default:()=>s});var b=t(67294),o=t(16550);function s(){return b.createElement(o.l_,{to:"/opbnb-docs/docs/build-on-opbnb/getting-started"})}}}]);
