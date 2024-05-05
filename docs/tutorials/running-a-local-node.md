@@ -14,6 +14,17 @@ This guide will walk you through setting up your own Testnet/Mainnet node.
 
 Replicas must store the transaction history of opBNB and run Geth. For optimal performance, they should be powerful machines (real or virtual) with at least 16 GB RAM and an SSD drive with 500 GB free space (for production network).
 
+### Fast Node
+
+For users that just to run normal rpc node without debug functions, you can run the fast node which has faster sync speed and less hardware requirements.
+
+The fast node don't have MPT states and only use the snapshot to sync the latest state. The security is not as good as the full node, but it's enough for most of the users and 
+validated in many production nodes. The advantage of the fast node is that it's faster to sync for it doesn't need to calculate the MPT states and store and query the MPT trees.
+
+You can start the fast node with the flags `--allow-insecure-no-tries`. The gc mode should not be `archive` if you start with the fast node.
+
+For more information, you can refer to the [fast node pr](https://github.com/bnb-chain/op-geth/pull/75).
+
 ## Run with Docker
 
 There are official Docker images available for the opBNB node. You can use the latest versions of these images from the following links:
@@ -136,6 +147,8 @@ export P2P_BOOTNODES="enr:-KO4QKFOBDW--pF4pFwv3Al_jiLOITj_Y5mr1Ajyy2yxHpFtNcBfkZ
 
 op-geth runs with [PBSS(Path-Base Scheme Storage) and PebbleDB](./pbss-pebble.md) by adding the flags `--state.scheme path` and `--db.engine pebble`.
 **It's recommended to start a new node with this mode, which provides better performance and less disk space usage.**
+
+To start the op-geth node for a fast node, you can add the flag `--allow-insecure-no-tries`. but the `gcmode` should be `full`.
 
 op-node
 
